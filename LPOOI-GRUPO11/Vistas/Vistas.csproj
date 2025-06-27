@@ -118,6 +118,12 @@
     <Compile Include="FrmPagosPorCliente.Designer.cs">
       <DependentUpon>FrmPagosPorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPorFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPorFechas.Designer.cs">
+      <DependentUpon>FrmPorFechas.cs</DependentUpon>
+    </Compile>
     <Compile Include="prestamosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagosPorCliente.resx">
       <DependentUpon>FrmPagosPorCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPorFechas.resx">
+      <DependentUpon>FrmPorFechas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

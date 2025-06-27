@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosPorClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMUsuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMDestinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,7 @@
             this.altaPrestamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarPrestamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pagosPorClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarPrestamosPorFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,13 @@
             this.gestionarPagosToolStripMenuItem.Text = "Gestionar Pagos";
             this.gestionarPagosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPagosToolStripMenuItem_Click_1);
             // 
+            // pagosPorClientesToolStripMenuItem
+            // 
+            this.pagosPorClientesToolStripMenuItem.Name = "pagosPorClientesToolStripMenuItem";
+            this.pagosPorClientesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.pagosPorClientesToolStripMenuItem.Text = "Pagos por Clientes";
+            this.pagosPorClientesToolStripMenuItem.Click += new System.EventHandler(this.pagosPorClienteToolStripMenuItem_Click_1);
+            // 
             // aBMUsuarioToolStripMenuItem
             // 
             this.aBMUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -93,7 +101,7 @@
             // aBMUsuarioToolStripMenuItem1
             // 
             this.aBMUsuarioToolStripMenuItem1.Name = "aBMUsuarioToolStripMenuItem1";
-            this.aBMUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.aBMUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
             this.aBMUsuarioToolStripMenuItem1.Text = "ABM Usuario";
             this.aBMUsuarioToolStripMenuItem1.Click += new System.EventHandler(this.aBMUsuarioToolStripMenuItem1_Click);
             // 
@@ -104,7 +112,7 @@
             this.modificarDestinoToolStripMenuItem1,
             this.eliminarDestinoToolStripMenuItem1});
             this.aBMDestinoToolStripMenuItem.Name = "aBMDestinoToolStripMenuItem";
-            this.aBMDestinoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aBMDestinoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.aBMDestinoToolStripMenuItem.Text = "ABM Destino";
             // 
             // altaDestinoToolStripMenuItem1
@@ -134,7 +142,7 @@
             this.altaClienteToolStripMenuItem1,
             this.aBMClienteToolStripMenuItem1});
             this.aBMClienteToolStripMenuItem.Name = "aBMClienteToolStripMenuItem";
-            this.aBMClienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aBMClienteToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.aBMClienteToolStripMenuItem.Text = "ABM Cliente";
             // 
             // altaClienteToolStripMenuItem1
@@ -155,7 +163,8 @@
             // 
             this.prestamosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaPrestamoToolStripMenuItem,
-            this.listarPrestamosToolStripMenuItem});
+            this.listarPrestamosToolStripMenuItem,
+            this.listarPrestamosPorFechasToolStripMenuItem});
             this.prestamosToolStripMenuItem.Name = "prestamosToolStripMenuItem";
             this.prestamosToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.prestamosToolStripMenuItem.Text = "Prestamos";
@@ -163,14 +172,14 @@
             // altaPrestamoToolStripMenuItem
             // 
             this.altaPrestamoToolStripMenuItem.Name = "altaPrestamoToolStripMenuItem";
-            this.altaPrestamoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.altaPrestamoToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.altaPrestamoToolStripMenuItem.Text = "Alta Prestamo";
             this.altaPrestamoToolStripMenuItem.Click += new System.EventHandler(this.altaPrestamoToolStripMenuItem_Click);
             // 
             // listarPrestamosToolStripMenuItem
             // 
             this.listarPrestamosToolStripMenuItem.Name = "listarPrestamosToolStripMenuItem";
-            this.listarPrestamosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.listarPrestamosToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.listarPrestamosToolStripMenuItem.Text = "Listar Prestamos";
             this.listarPrestamosToolStripMenuItem.Click += new System.EventHandler(this.listarPrestamosToolStripMenuItem_Click);
             // 
@@ -181,12 +190,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // pagosPorClientesToolStripMenuItem
+            // listarPrestamosPorFechasToolStripMenuItem
             // 
-            this.pagosPorClientesToolStripMenuItem.Name = "pagosPorClientesToolStripMenuItem";
-            this.pagosPorClientesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.pagosPorClientesToolStripMenuItem.Text = "Pagos por Clientes";
-            this.pagosPorClientesToolStripMenuItem.Click += new System.EventHandler(this.pagosPorClienteToolStripMenuItem_Click_1);
+            this.listarPrestamosPorFechasToolStripMenuItem.Name = "listarPrestamosPorFechasToolStripMenuItem";
+            this.listarPrestamosPorFechasToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.listarPrestamosPorFechasToolStripMenuItem.Text = "Listar Prestamos por Fechas";
+            this.listarPrestamosPorFechasToolStripMenuItem.Click += new System.EventHandler(this.listarPrestamosPorFechasToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -225,5 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem aBMClienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gestionarPagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosPorClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarPrestamosPorFechasToolStripMenuItem;
     }
 }
