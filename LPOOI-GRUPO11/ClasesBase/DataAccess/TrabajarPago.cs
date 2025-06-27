@@ -64,5 +64,21 @@ namespace ClasesBase.DataAccess
                 }
             }
         }
+        public static DataTable ObtenerPagosPorCliente(string clienteDNI)
+        {
+            DataTable dt = new DataTable();
+            string cadenaConexion = ClasesBase.Properties.Settings.Default.prestamosConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("sp_PagosPorCliente", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CLI_DNI", clienteDNI);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+        }
+            return dt;     
+    }
     }
 }

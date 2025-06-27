@@ -179,6 +179,11 @@ public void FrmMainMenu(Usuario user)
            FrmGestionPagos frmGestionPagos = new FrmGestionPagos();
            frmGestionPagos.Show();
        }
+       private void pagosPorClienteToolStripMenuItem_Click_1(object sender, EventArgs e)
+       {
+           FrmPagosPorCliente frmPagosporCliente = new FrmPagosPorCliente();
+           frmPagosporCliente.Show();
+       }
 
     }
 }
