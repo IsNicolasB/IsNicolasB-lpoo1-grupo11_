@@ -185,5 +185,11 @@ public void FrmMainMenu(Usuario user)
            frmPagosporCliente.Show();
        }
 
+       private void listarPrestamosPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmPorFechas frmPorFechas = new FrmPorFechas();
+           frmPorFechas.Show();
+       }
+
     }
 }
