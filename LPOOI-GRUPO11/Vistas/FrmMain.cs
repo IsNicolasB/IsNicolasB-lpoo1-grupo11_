@@ -135,8 +135,7 @@ public void FrmMainMenu(Usuario user)
 
        private void aBMUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
        {
-           FrmABMUsuarios frmUsuario = new FrmABMUsuarios();
-           frmUsuario.Show();
+           
        }
 
        private void altaDestinoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -189,6 +188,12 @@ public void FrmMainMenu(Usuario user)
        {
            FrmPorFechas frmPorFechas = new FrmPorFechas();
            frmPorFechas.Show();
+       }
+
+       private void aBMUsuarioToolStripMenuItem2_Click(object sender, EventArgs e)
+       {
+           FrmABMUsuarios frmUsuario = new FrmABMUsuarios();
+           frmUsuario.Show();
        }
 
     }

@@ -133,10 +133,30 @@ namespace Vistas
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
+
+          
+
             string apellidonombre = txtBuscarApellidoNombre.Text;
             txtBuscarApellidoNombre.Clear();
             dgvUsuarios.DataSource = TrabajarUsuario.buscarUsuariosPorNombreApellido(apellidonombre);
 
+        }
+
+        private void radioButtonUsername_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonApellido_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListarUsuariosOrdenados_Click(object sender, EventArgs e)
+        {
+            string criterio = radioButtonUsername.Checked ? "username" : "apellido";
+            DataTable dt = TrabajarUsuario.TraerUsuariosOrdenados(criterio);
+            dgvUsuarios.DataSource = dt;
         }
 
 

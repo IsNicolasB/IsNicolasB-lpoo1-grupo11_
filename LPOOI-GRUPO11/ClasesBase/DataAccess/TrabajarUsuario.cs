@@ -9,6 +9,23 @@ namespace ClasesBase.DataAccess
 {
     public class TrabajarUsuario
     {
+        public static DataTable TraerUsuariosOrdenados(string ordenarPor)
+        {
+            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            using (SqlCommand cmd = new SqlCommand("sp_ObtenerUsuariosConRoles", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ordenarPor", ordenarPor);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+
+
         public static DataTable getUsuarios()
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
