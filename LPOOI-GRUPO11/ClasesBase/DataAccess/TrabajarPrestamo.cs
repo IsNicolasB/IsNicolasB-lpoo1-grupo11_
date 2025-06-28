@@ -91,6 +91,21 @@ namespace ClasesBase.DataAccess
             }
         }
 
+        public static DataTable ObtenerPrestamosPorDestino(int destinoId)
+        {
+            using (SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("sp_PrestamosPorDestino", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DestinoId", destinoId);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
 
         
     }
