@@ -79,15 +79,14 @@ public void FrmMainMenu(Usuario user)
         {
             FrmAltaDestino frmDestino = new FrmAltaDestino();
             frmDestino.ShowDialog();
-            FrmListadoPrestamo frmListadoPrestamos = new FrmListadoPrestamo();
-            frmListadoPrestamos.ShowDialog();
+            FrmListadoPrestamoPorDestino frmListadoPrestamosPorDestino = new FrmListadoPrestamoPorDestino();
+            frmListadoPrestamosPorDestino.ShowDialog();
             
         }
 
         private void altaPeriodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmListadoPrestamo frmListadoPrestamos = new FrmListadoPrestamo();
-            frmListadoPrestamos.ShowDialog();
+            
         }
 
         
@@ -194,6 +193,12 @@ public void FrmMainMenu(Usuario user)
        {
            FrmABMUsuarios frmUsuario = new FrmABMUsuarios();
            frmUsuario.Show();
+       }
+
+       private void listarPrestamosPorDestinoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmListadoPrestamoPorDestino frmListadoPrestamos = new FrmListadoPrestamoPorDestino();
+           frmListadoPrestamos.Show();
        }
 
     }

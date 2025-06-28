@@ -100,6 +100,12 @@
     <Compile Include="FrmListadoPrestamo.Designer.cs">
       <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPrestamoPorDestino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPrestamoPorDestino.Designer.cs">
+      <DependentUpon>FrmListadoPrestamoPorDestino.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPrestamo.resx">
       <DependentUpon>FrmListadoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPrestamoPorDestino.resx">
+      <DependentUpon>FrmListadoPrestamoPorDestino.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

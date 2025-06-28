@@ -20,43 +20,13 @@ namespace Vistas
 
         private void FrmListadoPrestamo_Load(object sender, EventArgs e)
         {
-            CargarDestinos();
+            dgvPrestamos.DataSource = TrabajarPrestamo.getPrestamos();
+            dgvPrestamos.Refresh();
         }
 
-        private void CargarDestinos()
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                cmbDestinos.DataSource = TrabajarDestino.ListarDestinos();
-                cmbDestinos.DisplayMember = "DES_Descripcion";
-                cmbDestinos.ValueMember = "DES_Codigo";
-                cmbDestinos.SelectedIndex = -1; 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar destinos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (cmbDestinos.SelectedIndex != -1)
-            {
-                try
-                {
-                    int idDestino = Convert.ToInt32(cmbDestinos.SelectedValue);
-                    grdPrestamos.DataSource = TrabajarPrestamo.ObtenerPrestamosPorDestino(idDestino);
-                    grdPrestamos.Refresh();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al filtrar los préstamos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccioná un destino para buscar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
 
     }
