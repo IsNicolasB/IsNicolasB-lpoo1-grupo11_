@@ -132,7 +132,46 @@ namespace ClasesBase.DataAccess
         }
 
 
+        // Verifica si un préstamo tiene cuotas pagadas
+        public static bool TieneCuotasPagadas(int numeroPrestamo)
+        {
+            string query = "SELECT COUNT(*) FROM Cuota WHERE pre_numero = @pre_numero AND cuo_estado = 'PAGADA'";
+            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cmd.Parameters.AddWithValue("@pre_numero", numeroPrestamo);
+                cn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
 
+        // Anula el préstamo (cambia el estado)
+        public static void AnularPrestamo(int numeroPrestamo)
+        {
+            string query = "UPDATE Prestamo SET pre_estado = 'ANULADO' WHERE pre_numero = @pre_numero";
+            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cmd.Parameters.AddWithValue("@pre_numero", numeroPrestamo);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Verifica si el préstamo existe
+        public static bool PrestamoExiste(int numeroPrestamo)
+        {
+            string query = "SELECT COUNT(*) FROM Prestamo WHERE pre_numero = @pre_numero";
+            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cmd.Parameters.AddWithValue("@pre_numero", numeroPrestamo);
+                cn.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
 
         
     }
