@@ -40,5 +40,21 @@ namespace ClasesBase.DataAccess
             cn.Close();
         }
 
+        public static DataTable getCuotasPorClienteYPrestamo(int dni, int nroPrestamo)
+        {
+            using (SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("sp_CuotasPorClienteYPrestamo", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@nroPrestamo", nroPrestamo);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
     }
 }
