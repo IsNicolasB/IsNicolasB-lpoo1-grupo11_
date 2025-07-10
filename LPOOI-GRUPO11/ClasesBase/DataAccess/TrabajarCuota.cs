@@ -12,7 +12,7 @@ namespace ClasesBase.DataAccess
         public static DataTable getCuotasPendientes(int pre_numero)
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
-            SqlCommand cmd = new SqlCommand("obtener_cuotas_pendientes_por_prestamo", cn);
+            SqlCommand cmd = new SqlCommand("sp_ObtenerCuotasPendientesPorPrestamo", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@PRE_Numero", pre_numero);
