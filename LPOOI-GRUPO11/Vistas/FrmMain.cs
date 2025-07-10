@@ -201,5 +201,11 @@ public void FrmMainMenu(Usuario user)
            frmListadoPrestamos.Show();
        }
 
+       private void cuotasPorClientesYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           frmCuotaCliente frmCuotasClientes = new frmCuotaCliente();
+           frmCuotasClientes.Show();
+       }
+
     }
 }
