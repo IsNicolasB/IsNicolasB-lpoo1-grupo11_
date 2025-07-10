@@ -89,12 +89,6 @@
     <Compile Include="frmCuotaCliente.Designer.cs">
       <DependentUpon>frmCuotaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDePruebas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDePruebas.Designer.cs">
-      <DependentUpon>FrmDePruebas.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDestinoModificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCuotaCliente.resx">
       <DependentUpon>frmCuotaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmDePruebas.resx">
-      <DependentUpon>FrmDePruebas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDestinoModificar.resx">
       <DependentUpon>FrmDestinoModificar.cs</DependentUpon>
