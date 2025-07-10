@@ -106,6 +106,33 @@ namespace ClasesBase.DataAccess
             }
         }
 
+        public static List<Prestamo> GetPrestamosPorFecha(DateTime desde, DateTime hasta)
+        {
+            DataTable dt = getPrestamos(); // getPrestamos devuelve DataTable
+            List<Prestamo> prestamos = new List<Prestamo>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Prestamo p = new Prestamo
+                {
+                    PRE_Numero = Convert.ToInt32(row["PRE_Numero"]),
+                    CLI_DNI = row["CLI_DNI"].ToString(),
+                    DES_Codigo = Convert.ToInt32(row["DES_Codigo"]),
+                    PER_Codigo = Convert.ToInt32(row["PER_Codigo"]),
+                    PRE_Fecha = Convert.ToDateTime(row["PRE_Fecha"]),
+                    PRE_Importe = Convert.ToDecimal(row["PRE_Importe"]),
+                    PRE_TasaInteres = Convert.ToDouble(row["PRE_TasaInteres"]),
+                    PRE_CantidadCuotas = Convert.ToInt32(row["PRE_CantidadCuotas"]),
+                    PRE_Estado = row["PRE_Estado"].ToString()
+                };
+                prestamos.Add(p);
+            }
+
+            return prestamos.Where(p => p.PRE_Fecha >= desde && p.PRE_Fecha <= hasta).ToList();
+        }
+
+
+
 
         
     }
