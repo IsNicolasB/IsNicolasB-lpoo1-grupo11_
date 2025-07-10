@@ -229,5 +229,13 @@ namespace Vistas
 
        }
 
+       //PUNTO 1 TP FINAL
+       private void anularPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           frmAnularPrestamo frmanularPrestamo = new frmAnularPrestamo();
+           frmanularPrestamo.MdiParent = this;
+           frmanularPrestamo.WindowState = FormWindowState.Maximized;
+           frmanularPrestamo.Show();
+       }
     }
 }
