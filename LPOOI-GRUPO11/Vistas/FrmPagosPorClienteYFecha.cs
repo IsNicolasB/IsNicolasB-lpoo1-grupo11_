@@ -17,10 +17,6 @@ namespace Vistas
         public FrmPagosPorClienteYFecha()
         {
             InitializeComponent();
-            /*this.Load += FrmPagosPorClienteYFecha_Load;
-            btnFiltrar.Click += btnFiltrar_Click;
-            cmbClientes.SelectedIndexChanged += cmbClientes_SelectedIndexChanged;
-            btnLimpiarFiltros.Click += btnLimpiarFiltros_Click;*/
         }
 
         private void FrmPagosPorClienteYFecha_Load(object sender, EventArgs e)
@@ -34,17 +30,15 @@ namespace Vistas
         {
             try
             {
-                DataTable dt = TrabajarCliente.getClientes(); 
+                DataTable dt = TrabajarCliente.getClientes();
                 DataRow rowTodos = dt.NewRow();
-                rowTodos["CLI_DNI"] = DBNull.Value; // Usar DBNull.Value para el DNI de "Todos"
-                // Asegúrate de que 'NombreCompleto' exista en tu DataTable de clientes
-                // (si no, tu SP de listar clientes debe concatenar Apellido y Nombre)
-                rowTodos["Nombre"] = "Todos los Clientes";
-                dt.Rows.InsertAt(rowTodos, 0); // Insertar al principio
+                rowTodos["CLI_DNI"] = DBNull.Value; // DNI para "Todos"
+                rowTodos["cli_nombre"] = "Todos los Clientes"; // <-- Aquí agregas el nombre "Todos los Clientes"
+                dt.Rows.InsertAt(rowTodos, 0);
+
                 cmbClientes.DataSource = dt;
-                cmbClientes.DisplayMember = "Nombre";
+                cmbClientes.DisplayMember = "cli_nombre";
                 cmbClientes.ValueMember = "cli_dni";
-                cmbClientes.SelectedIndex = 0;
 
             }
             catch (Exception ex)
@@ -77,10 +71,8 @@ namespace Vistas
                 // Este método ahora recibe todos los posibles parámetros de filtro
                 DataTable dt = TrabajarPago.ObtenerPagosFiltrados(dniCliente, fechaDesde, fechaHasta);
                 dgvPagos.DataSource = dt;
-
                 // Llama al método para actualizar los totales (cantidad e importe)
                 ActualizarEstadisticasPagos(dt);
-                MessageBox.Show("SEejecuto: " + dt);
             }
             catch (Exception ex)
             {
@@ -115,12 +107,6 @@ namespace Vistas
         {
             CargarPagos();
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarPagos();
-        }
-
         private void dgvPagos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -143,8 +129,11 @@ namespace Vistas
             // Resetear el ComboBox de clientes a la opción "Todos los Clientes" (primer elemento)
             cmbClientes.SelectedIndex = 0;
 
-            // Volver a cargar los pagos con los filtros reseteados
-            CargarPagos(); // Llama al método que carga la grilla con todos los filtros
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
 

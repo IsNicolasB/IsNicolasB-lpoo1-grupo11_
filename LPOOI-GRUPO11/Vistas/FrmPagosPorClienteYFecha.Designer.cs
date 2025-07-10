@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.cmbClientes = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvPagos = new System.Windows.Forms.DataGridView();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,27 +38,18 @@
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.lblCantidadDePagos = new System.Windows.Forms.Label();
             this.lblImporteTotal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbClientes
             // 
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(22, 12);
+            this.cmbClientes.Location = new System.Drawing.Point(126, 12);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(288, 21);
             this.cmbClientes.TabIndex = 0;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(332, 10);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvPagos
             // 
@@ -144,11 +134,22 @@
             this.lblImporteTotal.TabIndex = 11;
             this.lblImporteTotal.Text = "Importe Total: ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Seleccionar Cliente";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // FrmPagosPorClienteYFecha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 431);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblImporteTotal);
             this.Controls.Add(this.lblCantidadDePagos);
             this.Controls.Add(this.btnLimpiarFiltros);
@@ -158,7 +159,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.dgvPagos);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cmbClientes);
             this.Name = "FrmPagosPorClienteYFecha";
             this.Text = "FrmPagosPorClienteYFecha";
@@ -172,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cmbClientes;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvPagos;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.Label label1;
@@ -182,5 +181,6 @@
         private System.Windows.Forms.Button btnLimpiarFiltros;
         private System.Windows.Forms.Label lblCantidadDePagos;
         private System.Windows.Forms.Label lblImporteTotal;
+        private System.Windows.Forms.Label label3;
     }
 }
