@@ -16,26 +16,40 @@ namespace Vistas
     {
         private Usuario usuarioLogueado;
 
-public void FrmMainMenu(Usuario user)
-{
-    InitializeComponent();
-    usuarioLogueado = user;
-    ConfigurarAccesosSegunRol();
-}
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        public void FrmMainMenu(Usuario user)
         {
-
+            InitializeComponent();
+            this.IsMdiContainer = true;
+            usuarioLogueado = user;
+            ConfigurarAccesosSegunRol();
         }
 
-        private void lolToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ConfigurarAccesosSegunRol()
         {
 
-        }
+            string rol = usuarioLogueado.ROL_Codigo;
+            //pensado en sentido de que los botones funcionen asi:
+            //clienteToolStripMenuItem=== usuarios destinos y periodos
+            //prestamosToolStripMenuItem ==== clientes prestamos y pagos
+            switch (rol)
+            {
+                case "ADM":
+                    // Solo habilita Usuarios, Destinos y Periodo
 
-        private void xdToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+                    aBMClienteToolStripMenuItem.Enabled = false;
+                    prestamosToolStripMenuItem.Enabled = false;
 
+                    break;
+
+                case "OPE":
+                    // Solo habilita Clientes, Prestamos y Pagos
+                    aBMUsuarioToolStripMenuItem1.Enabled = false;
+                    aBMDestinoToolStripMenuItem.Enabled = false;
+                    break;
+
+                case "AUD":
+                    break;
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -57,149 +71,163 @@ public void FrmMainMenu(Usuario user)
             }
         }
 
-        private void altaClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAltaCliente frmAlta = new FrmAltaCliente();
-            frmAlta.ShowDialog();
-        }
-
-        private void altaPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAltaPrestamo frmAltaPrestamo = new FrmAltaPrestamo();
-            frmAltaPrestamo.ShowDialog();
-        }
-
-        private void listarPrestamosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmListadoPrestamo frmListadoPrestamos = new FrmListadoPrestamo();
-            frmListadoPrestamos.ShowDialog();
-        }
-
-        private void altaDestinoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAltaDestino frmDestino = new FrmAltaDestino();
-            frmDestino.ShowDialog();
-            FrmListadoPrestamoPorDestino frmListadoPrestamosPorDestino = new FrmListadoPrestamoPorDestino();
-            frmListadoPrestamosPorDestino.ShowDialog();
-            
-        }
-
         private void altaPeriodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
         }
 
-        
-
-        private void modificarDestinoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDestinoModificar frmDestinoModificar = new FrmDestinoModificar();
-            frmDestinoModificar.ShowDialog();
-
-        }
-
-        private void eliminarDestinoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmEliminarDestino frmEliminarDestino = new FrmEliminarDestino();
-            frmEliminarDestino.ShowDialog();
-        }
-
-       private void ConfigurarAccesosSegunRol()
-        {
-
-            string rol = usuarioLogueado.ROL_Codigo;
-            //pensado en sentido de que los botones funcionen asi:
-            //clienteToolStripMenuItem=== usuarios destinos y periodos
-            //prestamosToolStripMenuItem ==== clientes prestamos y pagos
-            switch (rol)
-            {
-                case "ADM":
-                    // Solo habilita Usuarios, Destinos y Periodo
-
-                    aBMClienteToolStripMenuItem.Enabled = false;
-                    prestamosToolStripMenuItem.Enabled = false;
-            
-                    break;
-
-                case "OPE":
-                    // Solo habilita Clientes, Prestamos y Pagos
-                    aBMUsuarioToolStripMenuItem1.Enabled = false;
-                    aBMDestinoToolStripMenuItem.Enabled = false;
-                    break;
-
-                case "AUD":
-                    break;
-            }
-        }
-
-       private void aBMUsuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+ 
+       //ABM DE USUARIOS
+       private void aBMUsuarioToolStripMenuItem2_Click(object sender, EventArgs e)
        {
-           
+           FrmABMUsuarios frmUsuario = new FrmABMUsuarios();
+           frmUsuario.MdiParent = this;
+           frmUsuario.WindowState = FormWindowState.Maximized;
+           frmUsuario.Show();
        }
+
+       //ABM DE DESTINOS
 
        private void altaDestinoToolStripMenuItem1_Click(object sender, EventArgs e)
        {
            FrmAltaDestino frmAltaDestino = new FrmAltaDestino();
+           frmAltaDestino.MdiParent = this;
+           frmAltaDestino.WindowState = FormWindowState.Maximized;
            frmAltaDestino.Show();
        }
 
        private void modificarDestinoToolStripMenuItem1_Click(object sender, EventArgs e)
        {
            FrmDestinoModificar frmModDestino = new FrmDestinoModificar();
+           frmModDestino.MdiParent = this;
+           frmModDestino.WindowState = FormWindowState.Maximized;
            frmModDestino.Show();
        }
 
        private void eliminarDestinoToolStripMenuItem1_Click(object sender, EventArgs e)
        {
            FrmEliminarDestino frmEliminarDestino = new FrmEliminarDestino();
+           frmEliminarDestino.MdiParent = this;
+           frmEliminarDestino.WindowState = FormWindowState.Maximized;
            frmEliminarDestino.Show();
        }
+
+       //ABM CLIENTES
 
        private void altaClienteToolStripMenuItem1_Click(object sender, EventArgs e)
        {
            FrmAltaCliente frmAltaCliente = new FrmAltaCliente();
+           frmAltaCliente.MdiParent = this;
+           frmAltaCliente.WindowState = FormWindowState.Maximized;
            frmAltaCliente.Show();
        }
 
        private void aBMClienteToolStripMenuItem1_Click(object sender, EventArgs e)
        {
            FrmABMClientes frmABMClientes = new FrmABMClientes();
+           frmABMClientes.MdiParent = this;
+           frmABMClientes.WindowState = FormWindowState.Maximized;
            frmABMClientes.Show();
        }
 
-       private void gestionarPagosToolStripMenuItem_Click(object sender, EventArgs e)
-       {
 
-       }
-
-       private void gestionarPagosToolStripMenuItem_Click_1(object sender, EventArgs e)
+       //METODOS PARA LA GESTION DE PAGOS
+ 
+       private void realizarPagoToolStripMenuItem_Click(object sender, EventArgs e)
        {
            FrmGestionPagos frmGestionPagos = new FrmGestionPagos();
+           frmGestionPagos.MdiParent = this;
+           frmGestionPagos.WindowState = FormWindowState.Maximized;
            frmGestionPagos.Show();
        }
-       private void pagosPorClienteToolStripMenuItem_Click_1(object sender, EventArgs e)
+
+       private void listarPagosPorClienteToolStripMenuItem_Click(object sender, EventArgs e)
        {
            FrmPagosPorCliente frmPagosporCliente = new FrmPagosPorCliente();
+           frmPagosporCliente.MdiParent = this;
+           frmPagosporCliente.WindowState = FormWindowState.Maximized;
            frmPagosporCliente.Show();
        }
 
-       private void listarPrestamosPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+
+       // METODOS PARA LA GESTION DE PRESTAMOS
+
+       private void altaPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
        {
-           FrmPorFechas frmPorFechas = new FrmPorFechas();
-           frmPorFechas.Show();
+           FrmAltaPrestamo frmAltaPrestamo = new FrmAltaPrestamo();
+           frmAltaPrestamo.MdiParent = this;
+           frmAltaPrestamo.WindowState = FormWindowState.Maximized;
+           frmAltaPrestamo.Show();
        }
 
-       private void aBMUsuarioToolStripMenuItem2_Click(object sender, EventArgs e)
+       private void listarPrestamosToolStripMenuItem_Click(object sender, EventArgs e)
        {
-           FrmABMUsuarios frmUsuario = new FrmABMUsuarios();
-           frmUsuario.Show();
+           FrmListadoPrestamo frmListadoPrestamos = new FrmListadoPrestamo();
+           frmListadoPrestamos.MdiParent = this;
+           frmListadoPrestamos.WindowState = FormWindowState.Maximized;
+           frmListadoPrestamos.Show();
        }
 
        private void listarPrestamosPorDestinoToolStripMenuItem_Click(object sender, EventArgs e)
        {
            FrmListadoPrestamoPorDestino frmListadoPrestamos = new FrmListadoPrestamoPorDestino();
+           frmListadoPrestamos.MdiParent = this;
+           frmListadoPrestamos.WindowState = FormWindowState.Maximized;
            frmListadoPrestamos.Show();
        }
+
+       private void listarPrestamosPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmPorFechas frmPorFechas = new FrmPorFechas();
+           frmPorFechas.MdiParent = this;
+           frmPorFechas.WindowState = FormWindowState.Maximized;
+           frmPorFechas.Show();
+       }
+
+       // GESTION DE CUOTAS
+
+       private void cuotasPorClientesYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           frmCuotaCliente frmCuotasClientes = new frmCuotaCliente();
+           frmCuotasClientes.MdiParent = this;
+           frmCuotasClientes.WindowState = FormWindowState.Maximized;
+           frmCuotasClientes.Show();
+       }
+
+       // OTROS EVENTOS
+
+       private void label2_Click(object sender, EventArgs e)
+       {
+
+       }
+
+       private void prestamosToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+
+       }
+
+
+       private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+       {
+
+       }
+
+       private void lolToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+
+       }
+
+       private void xdToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+
+       }
+
+       private void listarPagosPorClienteYFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+
+       }
+
+
 
     }
 }

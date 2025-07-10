@@ -22,7 +22,7 @@ namespace ClasesBase.DataAccess
         public static DataTable getPrestamosPendientes(string dni)
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
-            SqlCommand cmd = new SqlCommand("obtener_prestamos_pendientes_por_DNI", cn);
+            SqlCommand cmd = new SqlCommand("sp_ObtenerPrestamosPendientesPorDNI", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@CLI_DNI", dni);
@@ -75,7 +75,7 @@ namespace ClasesBase.DataAccess
         {
             using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("es_prestamo_cancelado", cn);
+                SqlCommand cmd = new SqlCommand("sp_EsPrestamoCancelado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@PRE_Numero", prestamoId);
@@ -105,6 +105,33 @@ namespace ClasesBase.DataAccess
                 return dt;
             }
         }
+
+        public static List<Prestamo> GetPrestamosPorFecha(DateTime desde, DateTime hasta)
+        {
+            DataTable dt = getPrestamos(); // getPrestamos devuelve DataTable
+            List<Prestamo> prestamos = new List<Prestamo>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Prestamo p = new Prestamo
+                {
+                    PRE_Numero = Convert.ToInt32(row["PRE_Numero"]),
+                    CLI_DNI = row["CLI_DNI"].ToString(),
+                    DES_Codigo = Convert.ToInt32(row["DES_Codigo"]),
+                    PER_Codigo = Convert.ToInt32(row["PER_Codigo"]),
+                    PRE_Fecha = Convert.ToDateTime(row["PRE_Fecha"]),
+                    PRE_Importe = Convert.ToDecimal(row["PRE_Importe"]),
+                    PRE_TasaInteres = Convert.ToDouble(row["PRE_TasaInteres"]),
+                    PRE_CantidadCuotas = Convert.ToInt32(row["PRE_CantidadCuotas"]),
+                    PRE_Estado = row["PRE_Estado"].ToString()
+                };
+                prestamos.Add(p);
+            }
+
+            return prestamos.Where(p => p.PRE_Fecha >= desde && p.PRE_Fecha <= hasta).ToList();
+        }
+
+
 
 
         

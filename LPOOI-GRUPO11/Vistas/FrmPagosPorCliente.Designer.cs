@@ -65,6 +65,7 @@
             this.Load += new System.EventHandler(this.FrmPagosPorCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).EndInit();
             this.ResumeLayout(false);
+
         }
     }
 }

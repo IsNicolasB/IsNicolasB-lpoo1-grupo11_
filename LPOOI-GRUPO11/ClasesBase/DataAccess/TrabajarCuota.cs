@@ -12,7 +12,7 @@ namespace ClasesBase.DataAccess
         public static DataTable getCuotasPendientes(int pre_numero)
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
-            SqlCommand cmd = new SqlCommand("obtener_cuotas_pendientes_por_prestamo", cn);
+            SqlCommand cmd = new SqlCommand("sp_ObtenerCuotasPendientesPorPrestamo", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@PRE_Numero", pre_numero);
@@ -26,7 +26,7 @@ namespace ClasesBase.DataAccess
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
 
-            SqlCommand cmd = new SqlCommand("insertar_cuota", cn);
+            SqlCommand cmd = new SqlCommand("sp_InsertarCuota", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@PRE_Numero", oCuota.PRE_Numero);
@@ -38,6 +38,22 @@ namespace ClasesBase.DataAccess
             cn.Open();
             cmd.ExecuteNonQuery();
             cn.Close();
+        }
+
+        public static DataTable getCuotasPorClienteYPrestamo(int dni, int nroPrestamo)
+        {
+            using (SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("sp_CuotasPorClienteYPrestamo", cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@nroPrestamo", nroPrestamo);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
         }
 
     }

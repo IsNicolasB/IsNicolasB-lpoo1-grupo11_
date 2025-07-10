@@ -10,7 +10,7 @@ namespace ClasesBase.DataAccess
     {
         public static DataTable getClientes(){
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
-            SqlCommand cmd = new SqlCommand("obtener_clientes", cn);
+            SqlCommand cmd = new SqlCommand("sp_ObtenerClientes", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);

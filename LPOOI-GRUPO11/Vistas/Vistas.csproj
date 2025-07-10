@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +76,18 @@
     </Compile>
     <Compile Include="FrmAltaDestino.Designer.cs">
       <DependentUpon>FrmAltaDestino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCuotaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuotaCliente.Designer.cs">
+      <DependentUpon>frmCuotaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDePruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDePruebas.Designer.cs">
+      <DependentUpon>FrmDePruebas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDestinoModificar.cs">
       <SubType>Form</SubType>
@@ -124,6 +137,12 @@
     <Compile Include="FrmPagosPorCliente.Designer.cs">
       <DependentUpon>FrmPagosPorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPagosPorClienteYFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagosPorClienteYFecha.Designer.cs">
+      <DependentUpon>FrmPagosPorClienteYFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPorFechas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +171,12 @@
     <EmbeddedResource Include="FrmAltaDestino.resx">
       <DependentUpon>FrmAltaDestino.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCuotaCliente.resx">
+      <DependentUpon>frmCuotaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDePruebas.resx">
+      <DependentUpon>FrmDePruebas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDestinoModificar.resx">
       <DependentUpon>FrmDestinoModificar.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagosPorCliente.resx">
       <DependentUpon>FrmPagosPorCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagosPorClienteYFecha.resx">
+      <DependentUpon>FrmPagosPorClienteYFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPorFechas.resx">
       <DependentUpon>FrmPorFechas.cs</DependentUpon>
