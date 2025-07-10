@@ -22,7 +22,7 @@ namespace ClasesBase.DataAccess
         public static DataTable getPrestamosPendientes(string dni)
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
-            SqlCommand cmd = new SqlCommand("obtener_prestamos_pendientes_por_DNI", cn);
+            SqlCommand cmd = new SqlCommand("sp_ObtenerPrestamosPendientesPorDNI", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@CLI_DNI", dni);
@@ -75,7 +75,7 @@ namespace ClasesBase.DataAccess
         {
             using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("es_prestamo_cancelado", cn);
+                SqlCommand cmd = new SqlCommand("sp_EsPrestamoCancelado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@PRE_Numero", prestamoId);

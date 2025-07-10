@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using ClasesBase.Utils;
 namespace ClasesBase.DataAccess
+
 {
     public class TrabajarPago
     {
@@ -13,9 +15,9 @@ namespace ClasesBase.DataAccess
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+                using (SqlConnection cn = Conexion.CrearConexion())
                 {
-                    SqlCommand cmd = new SqlCommand("insertar_pago", cn);
+                    SqlCommand cmd = new SqlCommand("sp_InsertarPago", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@CUO_Codigo", oPago.CUO_Codigo);
@@ -35,11 +37,11 @@ namespace ClasesBase.DataAccess
 
         public static string insertPagoCuota(int cuotaId, int prestamoId, DateTime fechaPago, decimal importe)
         {
-            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
+            using (SqlConnection cn = Conexion.CrearConexion())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("registrar_pago_cuota", cn);
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarPagoCuota", cn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@CUO_Codigo", cuotaId);
@@ -67,18 +69,76 @@ namespace ClasesBase.DataAccess
         public static DataTable ObtenerPagosPorCliente(string clienteDNI)
         {
             DataTable dt = new DataTable();
-            string cadenaConexion = ClasesBase.Properties.Settings.Default.prestamosConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(cadenaConexion))
+            using (SqlConnection cn = Conexion.CrearConexion())
             {
-                SqlCommand cmd = new SqlCommand("sp_PagosPorCliente", conn);
+                SqlCommand cmd = new SqlCommand("sp_PagosPorCliente", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CLI_DNI", clienteDNI);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
+            }
+                return dt;     
         }
-            return dt;     
-    }
+
+        public static DataTable ObtenerPagosFiltrados(string dniCliente, DateTime? fechaDesde, DateTime? fechaHasta)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection cn = Conexion.CrearConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_ListarPagosFiltrados", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetro para el DNI del cliente
+                    if (!string.IsNullOrEmpty(dniCliente))
+                    {
+                        cmd.Parameters.AddWithValue("@CLI_DNI", dniCliente);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@CLI_DNI", DBNull.Value);
+                    }
+
+                    // Parámetro para la fecha de inicio del rango
+                    if (fechaDesde.HasValue)
+                    {
+                        cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde.Value.Date); // Solo la fecha
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@FechaDesde", DBNull.Value);
+                    }
+
+                    // Parámetro para la fecha de fin del rango
+                    if (fechaHasta.HasValue)
+                    {
+                        cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta.Value.Date); // Solo la fecha
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@FechaHasta", DBNull.Value);
+                    }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    try
+                    {
+                        cn.Open();
+                        da.Fill(dt);
+                    }
+                    catch (SqlException ex)
+                    {
+                        Console.WriteLine("Error de SQL al listar pagos filtrados: " + ex.Message);
+                        // Considera un mejor manejo de errores o logging
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error general al listar pagos filtrados: " + ex.Message);
+                    }
+                }
+            }
+            return dt;
+        }
     }
 }

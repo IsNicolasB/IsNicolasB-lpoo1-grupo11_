@@ -26,7 +26,7 @@ namespace ClasesBase.DataAccess
         {
             SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString);
 
-            SqlCommand cmd = new SqlCommand("insertar_cuota", cn);
+            SqlCommand cmd = new SqlCommand("sp_InsertarCuota", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@PRE_Numero", oCuota.PRE_Numero);
