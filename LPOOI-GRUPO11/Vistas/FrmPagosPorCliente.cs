@@ -27,19 +27,9 @@ namespace Vistas
         {
             try
             {
-                string cadenaConexion = ClasesBase.Properties.Settings.Default.prestamosConnectionString;
-                using (SqlConnection conn = new SqlConnection(cadenaConexion))
-                {
-                       SqlCommand cmd = new SqlCommand("SELECT cli_dni, cli_apellido + ',' + cli_nombre AS NombreCompleto FROM Cliente", conn);
-                       SqlDataAdapter da = new SqlDataAdapter(cmd);
-                       DataTable dt = new DataTable();
-                       da.Fill(dt);
-                       
-                       cmbClientes.DataSource = dt;
-                       cmbClientes.DisplayMember = "NombreCompleto";
-                       cmbClientes.ValueMember = "cli_dni";
-                }
-              
+                cmbClientes.DataSource = TrabajarCliente.getClientes();
+                cmbClientes.DisplayMember = "NombreCompleto";
+                cmbClientes.ValueMember = "cli_dni";
             }
             catch (Exception ex)
             {
@@ -53,6 +43,26 @@ namespace Vistas
                 string clienteDNI = cmbClientes.SelectedValue.ToString();
                 DataTable pagos = TrabajarPago.ObtenerPagosPorCliente(clienteDNI);
                 dgvPagos.DataSource = pagos;
+
+                // Calcular cantidad e importe total
+                int cantidadPagos = pagos.Rows.Count;
+                decimal totalImporte = 0;
+
+                if (pagos.Columns.Contains("Importe")) // Asegurate que la columna se llama así
+                {
+                    foreach (DataRow row in pagos.Rows)
+                    {
+                        decimal importe;
+                        if (decimal.TryParse(row["Importe"].ToString(), out importe))
+                        {
+                            totalImporte += importe;
+                        }
+                    }
+                }
+
+                // Mostrar resumen
+                lblResumen.Text = string.Format("Cantidad de pagos: {0}    Total pagado: ${1:F2}", cantidadPagos, totalImporte);
+
             }
             else
             {
