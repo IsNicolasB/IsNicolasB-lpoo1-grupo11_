@@ -149,6 +149,13 @@ namespace Vistas
            frmPagosporCliente.Show();
        }
 
+       private void listarPagosPorClienteYFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmPagosPorClienteYFecha frmPagosPorClienteYFecha = new FrmPagosPorClienteYFecha();
+           frmPagosPorClienteYFecha.MdiParent = this;
+           frmPagosPorClienteYFecha.WindowState = FormWindowState.Maximized;
+           frmPagosPorClienteYFecha.Show();
+       }
 
        // METODOS PARA LA GESTION DE PRESTAMOS
 
@@ -221,13 +228,6 @@ namespace Vistas
        {
 
        }
-
-       private void listarPagosPorClienteYFechasToolStripMenuItem_Click(object sender, EventArgs e)
-       {
-
-       }
-
-
 
     }
 }
