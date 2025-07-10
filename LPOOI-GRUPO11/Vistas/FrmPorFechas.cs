@@ -33,7 +33,25 @@ namespace Vistas
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dgvPrestamos.DataSource = dt;
+
+                // Contar estados
+                int total = dt.Rows.Count;
+                int otorgados = dt.Rows.Count;
+                int pendientes = dt.Select("Estado = 'PENDIENTE'").Length;
+                int cancelados = dt.Select("Estado = 'CANCELADO'").Length;
+                int anulados = dt.Select("Estado = 'ANULADO'").Length;
+
+                // Mostrar resultados
+                lblTotales.Text = "Total: " + total +
+                              " | Pendientes: " + pendientes +
+                              " | Cancelados: " + cancelados +
+                              " | Anulados: " + anulados;
             }
+        }
+
+        private void FrmPorFechas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
