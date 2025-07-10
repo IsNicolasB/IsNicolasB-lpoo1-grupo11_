@@ -23,6 +23,7 @@
             this.lblHasta = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvPrestamos = new System.Windows.Forms.DataGridView();
+            this.lblTotales = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,9 +79,18 @@
             this.dgvPrestamos.Size = new System.Drawing.Size(720, 300);
             this.dgvPrestamos.TabIndex = 5;
             // 
+            // lblTotales
+            // 
+            this.lblTotales.AutoSize = true;
+            this.lblTotales.Location = new System.Drawing.Point(30, 367);
+            this.lblTotales.Name = "lblTotales";
+            this.lblTotales.Size = new System.Drawing.Size(0, 13);
+            this.lblTotales.TabIndex = 6;
+            // 
             // FrmPorFechas
             // 
             this.ClientSize = new System.Drawing.Size(784, 391);
+            this.Controls.Add(this.lblTotales);
             this.Controls.Add(this.dgvPrestamos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblHasta);
@@ -89,6 +99,7 @@
             this.Controls.Add(this.dtpDesde);
             this.Name = "FrmPorFechas";
             this.Text = "Listado de Préstamos por Fecha";
+            this.Load += new System.EventHandler(this.FrmPorFechas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -103,5 +114,6 @@
         private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvPrestamos;
+        private System.Windows.Forms.Label lblTotales;
     }
 }
