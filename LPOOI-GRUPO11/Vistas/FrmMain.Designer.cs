@@ -56,6 +56,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.aBMPeriodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -104,17 +105,19 @@
             this.aBMUsuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMUsuarioToolStripMenuItem1,
             this.aBMDestinoToolStripMenuItem,
-            this.aBMClienteToolStripMenuItem});
+            this.aBMClienteToolStripMenuItem,
+            this.aBMPeriodoToolStripMenuItem});
             this.aBMUsuarioToolStripMenuItem.Name = "aBMUsuarioToolStripMenuItem";
             this.aBMUsuarioToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.aBMUsuarioToolStripMenuItem.Text = "ABM";
+            this.aBMUsuarioToolStripMenuItem.Click += new System.EventHandler(this.aBMUsuarioToolStripMenuItem_Click);
             // 
             // aBMUsuarioToolStripMenuItem1
             // 
             this.aBMUsuarioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMUsuarioToolStripMenuItem2});
             this.aBMUsuarioToolStripMenuItem1.Name = "aBMUsuarioToolStripMenuItem1";
-            this.aBMUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+            this.aBMUsuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aBMUsuarioToolStripMenuItem1.Text = "ABM Usuario";
             // 
             // aBMUsuarioToolStripMenuItem2
@@ -131,7 +134,7 @@
             this.modificarDestinoToolStripMenuItem1,
             this.eliminarDestinoToolStripMenuItem1});
             this.aBMDestinoToolStripMenuItem.Name = "aBMDestinoToolStripMenuItem";
-            this.aBMDestinoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.aBMDestinoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aBMDestinoToolStripMenuItem.Text = "ABM Destino";
             // 
             // altaDestinoToolStripMenuItem1
@@ -161,7 +164,7 @@
             this.altaClienteToolStripMenuItem1,
             this.aBMClienteToolStripMenuItem1});
             this.aBMClienteToolStripMenuItem.Name = "aBMClienteToolStripMenuItem";
-            this.aBMClienteToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.aBMClienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aBMClienteToolStripMenuItem.Text = "ABM Cliente";
             // 
             // altaClienteToolStripMenuItem1
@@ -293,6 +296,13 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // aBMPeriodoToolStripMenuItem
+            // 
+            this.aBMPeriodoToolStripMenuItem.Name = "aBMPeriodoToolStripMenuItem";
+            this.aBMPeriodoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aBMPeriodoToolStripMenuItem.Text = "ABM Periodo";
+            this.aBMPeriodoToolStripMenuItem.Click += new System.EventHandler(this.aBMPeriodoToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,5 +355,6 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label lblGrupo;
+        private System.Windows.Forms.ToolStripMenuItem aBMPeriodoToolStripMenuItem;
     }
 }

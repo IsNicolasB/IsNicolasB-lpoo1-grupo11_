@@ -53,6 +53,12 @@
     <Compile Include="FrmABMClientes.Designer.cs">
       <DependentUpon>FrmABMClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmABMPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmABMPeriodo.Designer.cs">
+      <DependentUpon>FrmABMPeriodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmABMUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmABMClientes.resx">
       <DependentUpon>FrmABMClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmABMPeriodo.resx">
+      <DependentUpon>FrmABMPeriodo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmABMUsuarios.resx">
       <DependentUpon>FrmABMUsuarios.cs</DependentUpon>

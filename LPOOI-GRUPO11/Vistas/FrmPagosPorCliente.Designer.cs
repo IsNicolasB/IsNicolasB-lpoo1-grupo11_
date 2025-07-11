@@ -21,6 +21,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvPagos = new System.Windows.Forms.DataGridView();
             this.lblResumen = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -28,14 +29,14 @@
             // 
             this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(12, 12);
+            this.cmbClientes.Location = new System.Drawing.Point(12, 30);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(300, 21);
             this.cmbClientes.TabIndex = 0;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(330, 10);
+            this.btnBuscar.Location = new System.Drawing.Point(333, 28);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -48,24 +49,34 @@
             this.dgvPagos.AllowUserToAddRows = false;
             this.dgvPagos.AllowUserToDeleteRows = false;
             this.dgvPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPagos.Location = new System.Drawing.Point(12, 50);
+            this.dgvPagos.Location = new System.Drawing.Point(12, 66);
             this.dgvPagos.Name = "dgvPagos";
             this.dgvPagos.ReadOnly = true;
             this.dgvPagos.Size = new System.Drawing.Size(600, 300);
             this.dgvPagos.TabIndex = 2;
-            //
+            // 
             // lblResumen
-            //
+            // 
             this.lblResumen.Location = new System.Drawing.Point(12, 360);
-            this.lblResumen.Size = new System.Drawing.Size(600, 23);
             this.lblResumen.Name = "lblResumen";
-            this.lblResumen.Text = "";
+            this.lblResumen.Size = new System.Drawing.Size(600, 23);
+            this.lblResumen.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Seleccionar Cliente";
             // 
             // FrmPagosPorCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 400);
+            this.ClientSize = new System.Drawing.Size(624, 377);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblResumen);
             this.Controls.Add(this.dgvPagos);
             this.Controls.Add(this.btnBuscar);
@@ -75,7 +86,10 @@
             this.Load += new System.EventHandler(this.FrmPagosPorCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
+
+        private System.Windows.Forms.Label label3;
     }
 }

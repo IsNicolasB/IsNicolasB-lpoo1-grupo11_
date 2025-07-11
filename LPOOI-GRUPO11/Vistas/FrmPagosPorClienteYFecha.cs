@@ -21,7 +21,8 @@ namespace Vistas
 
         private void FrmPagosPorClienteYFecha_Load(object sender, EventArgs e)
         {
-                        //Primer día de este año
+                        
+            //Primer día de este año
             dtpDesde.Value = new DateTime(DateTime.Now.Year, 1, 1);
             dtpHasta.Value = DateTime.Today;
             CargarClientes();

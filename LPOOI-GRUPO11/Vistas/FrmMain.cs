@@ -237,5 +237,18 @@ namespace Vistas
            frmanularPrestamo.WindowState = FormWindowState.Maximized;
            frmanularPrestamo.Show();
        }
+
+       private void aBMUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+
+       }
+
+       private void aBMPeriodoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmABMPeriodo frmPeriodo = new FrmABMPeriodo();
+           frmPeriodo.MdiParent = this;
+           frmPeriodo.WindowState = FormWindowState.Maximized;
+           frmPeriodo.Show();
+       }
     }
 }
