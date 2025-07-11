@@ -25,32 +25,40 @@ namespace Vistas
             string cadenaConexion = ClasesBase.Properties.Settings.Default.prestamosConnectionString;
             using (SqlConnection conn = new SqlConnection(cadenaConexion))
             {
-                SqlCommand cmd = new SqlCommand("SELECT cli_dni, cli_apellido + ',' + cli_nombre AS NombreCompleto FROM Cliente", conn);
+                string query = "SELECT cli_dni, cli_apellido + ', ' + cli_nombre AS NombreCompleto FROM Cliente ORDER BY cli_apellido, cli_nombre";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                // Esto es clave: usar la tabla directamente como fuente
                 cmbClientes.DataSource = dt;
-                cmbClientes.DisplayMember = "NombreCompleto";
-                cmbClientes.ValueMember = "CLI_DNI";
+                cmbClientes.DisplayMember = "NombreCompleto";  // lo que se muestra
+                cmbClientes.ValueMember = "cli_dni";           // lo que se guarda internamente
+
+                cmbClientes.SelectedIndex = -1; // Ninguno seleccionado al principio
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-           if (cmbClientes.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtNroPrestamo.Text))
+            if (cmbClientes.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtNroPrestamo.Text))
             {
                 MessageBox.Show("Seleccioná un cliente y escribí el número de préstamo.");
                 return;
             }
 
-            int dni = Convert.ToInt32(cmbClientes.SelectedValue);
+            DataRowView filaSeleccionada = (DataRowView)cmbClientes.SelectedItem;
+            string dni = filaSeleccionada["cli_dni"].ToString();
+
             int nroPrestamo = Convert.ToInt32(txtNroPrestamo.Text);
 
             DataTable cuotas = TrabajarCuota.getCuotasPorClienteYPrestamo(dni, nroPrestamo);
             dgvCuotas.DataSource = cuotas;
 
             CalcularTotales(cuotas);
+
         }
 
         private void CalcularTotales(DataTable dt)
@@ -81,6 +89,7 @@ namespace Vistas
             lblTotalPendiente.Text = "Importe pendiente: $" + importePendiente.ToString("N2");
 
         }
+
 
     }
 }

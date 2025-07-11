@@ -28,58 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelAnular = new System.Windows.Forms.Label();
-            this.txtBoxAnularPrestamo = new System.Windows.Forms.TextBox();
-            this.buttonAnularPrestamo = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.btnAnular = new System.Windows.Forms.Button();
+            this.cboNumeroPrestamo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelAnular
+            // groupBox1
             // 
-            this.labelAnular.AutoSize = true;
-            this.labelAnular.Location = new System.Drawing.Point(29, 39);
-            this.labelAnular.Name = "labelAnular";
-            this.labelAnular.Size = new System.Drawing.Size(145, 17);
-            this.labelAnular.TabIndex = 3;
-            this.labelAnular.Text = "ANULAR PRESTAMO";
-            this.labelAnular.Click += new System.EventHandler(this.labelAnular_Click);
+            this.groupBox1.Controls.Add(this.lblMensaje);
+            this.groupBox1.Controls.Add(this.btnAnular);
+            this.groupBox1.Controls.Add(this.cboNumeroPrestamo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(20, 20);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(300, 180);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Anulación de préstamo";
             // 
-            // txtBoxAnularPrestamo
+            // lblMensaje
             // 
-            this.txtBoxAnularPrestamo.Location = new System.Drawing.Point(48, 98);
-            this.txtBoxAnularPrestamo.Name = "txtBoxAnularPrestamo";
-            this.txtBoxAnularPrestamo.Size = new System.Drawing.Size(217, 22);
-            this.txtBoxAnularPrestamo.TabIndex = 4;
-            this.txtBoxAnularPrestamo.TextChanged += new System.EventHandler(this.txtBoxAnularPrestamo_TextChanged);
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+            this.lblMensaje.Location = new System.Drawing.Point(20, 130);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 18);
+            this.lblMensaje.TabIndex = 3;
             // 
-            // buttonAnularPrestamo
+            // btnAnular
             // 
-            this.buttonAnularPrestamo.Location = new System.Drawing.Point(12, 195);
-            this.buttonAnularPrestamo.Name = "buttonAnularPrestamo";
-            this.buttonAnularPrestamo.Size = new System.Drawing.Size(83, 40);
-            this.buttonAnularPrestamo.TabIndex = 5;
-            this.buttonAnularPrestamo.Text = "Confirmar";
-            this.buttonAnularPrestamo.UseVisualStyleBackColor = true;
-            this.buttonAnularPrestamo.Click += new System.EventHandler(this.buttonAnularPrestamo_Click);
+            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnular.Location = new System.Drawing.Point(5, 119);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(120, 29);
+            this.btnAnular.TabIndex = 2;
+            this.btnAnular.Text = "Anular préstamo";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
+            // cboNumeroPrestamo
+            // 
+            this.cboNumeroPrestamo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNumeroPrestamo.FormattingEnabled = true;
+            this.cboNumeroPrestamo.Location = new System.Drawing.Point(131, 48);
+            this.cboNumeroPrestamo.Name = "cboNumeroPrestamo";
+            this.cboNumeroPrestamo.Size = new System.Drawing.Size(112, 26);
+            this.cboNumeroPrestamo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Número préstamo:";
             // 
             // frmAnularPrestamo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 281);
-            this.Controls.Add(this.buttonAnularPrestamo);
-            this.Controls.Add(this.txtBoxAnularPrestamo);
-            this.Controls.Add(this.labelAnular);
+            this.ClientSize = new System.Drawing.Size(336, 212);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmAnularPrestamo";
-            this.Text = "frmAnularPrestamo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Anular Préstamo";
+            this.Load += new System.EventHandler(this.frmAnularPrestamo_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label labelAnular;
-        private System.Windows.Forms.TextBox txtBoxAnularPrestamo;
-        private System.Windows.Forms.Button buttonAnularPrestamo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboNumeroPrestamo;
+        private System.Windows.Forms.Button btnAnular;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }
