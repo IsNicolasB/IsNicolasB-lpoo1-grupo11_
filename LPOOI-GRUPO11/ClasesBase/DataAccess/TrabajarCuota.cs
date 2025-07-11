@@ -40,7 +40,7 @@ namespace ClasesBase.DataAccess
             cn.Close();
         }
 
-        public static DataTable getCuotasPorClienteYPrestamo(int dni, int nroPrestamo)
+        public static DataTable getCuotasPorClienteYPrestamo(string dni, int nroPrestamo)
         {
             using (SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
             {
