@@ -49,11 +49,18 @@ namespace Vistas
 
         private void CargarPagos()
         {
+            // Validación de fechas
+            if (dtpDesde.Value.Date > dtpHasta.Value.Date)
+            {
+                MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.", "Rango de fechas inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Salir sin ejecutar la consulta
+            }
+
             string dniCliente = null;
+
             // Obtener el DNI del cliente seleccionado (si no es "Todos")
             if (cmbClientes.SelectedValue != DBNull.Value && cmbClientes.SelectedIndex > -1)
             {
-                // Manejo robusto para obtener el SelectedValue, ya sea un tipo simple o DataRowView
                 DataRowView dgvPagos = cmbClientes.SelectedItem as DataRowView;
                 if (dgvPagos != null && dgvPagos["CLI_DNI"] != DBNull.Value)
                 {
@@ -67,11 +74,8 @@ namespace Vistas
 
             try
             {
-                // Llama al método de la capa DataAccess que usa el sp_ListarPagosFiltrados
-                // Este método ahora recibe todos los posibles parámetros de filtro
                 DataTable dt = TrabajarPago.ObtenerPagosFiltrados(dniCliente, fechaDesde, fechaHasta);
                 dgvPagos.DataSource = dt;
-                // Llama al método para actualizar los totales (cantidad e importe)
                 ActualizarEstadisticasPagos(dt);
             }
             catch (Exception ex)
@@ -79,6 +83,7 @@ namespace Vistas
                 MessageBox.Show("Error al cargar pagos: " + ex.Message);
             }
         }
+
 
         private void ActualizarEstadisticasPagos(DataTable dtPagos)
         {
