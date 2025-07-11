@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using ClasesBase.Utils;
 
 namespace ClasesBase.DataAccess
 {
@@ -172,6 +173,29 @@ namespace ClasesBase.DataAccess
                 return count > 0;
             }
         }
+
+        public static DataTable ObtenerResumenPrestamosPorDestino(int destinoId)
+        {
+            SqlConnection conn = Conexion.CrearConexion();
+            SqlCommand cmd = new SqlCommand("sp_ResumenPrestamosPorDestino", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DestinoId", destinoId);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtResumen = new DataTable();
+
+            try
+            {
+                conn.Open();
+                da.Fill(dtResumen);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dtResumen;
+        }
+
 
         
     }

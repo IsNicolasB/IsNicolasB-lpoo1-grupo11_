@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using ClasesBase;
 using ClasesBase.DataAccess;
+using System.Data.SqlClient;
+using ClasesBase.Utils;
 
 namespace Vistas
 {
@@ -30,7 +32,7 @@ namespace Vistas
                 cmbDestinos.DataSource = TrabajarDestino.ListarDestinos();
                 cmbDestinos.DisplayMember = "DES_Descripcion";
                 cmbDestinos.ValueMember = "DES_Codigo";
-                cmbDestinos.SelectedIndex = -1; 
+                cmbDestinos.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -47,6 +49,7 @@ namespace Vistas
                     int idDestino = Convert.ToInt32(cmbDestinos.SelectedValue);
                     grdPrestamos.DataSource = TrabajarPrestamo.ObtenerPrestamosPorDestino(idDestino);
                     grdPrestamos.Refresh();
+                    MostrarTotales(idDestino);
                 }
                 catch (Exception ex)
                 {
@@ -59,5 +62,29 @@ namespace Vistas
             }
         }
 
+        private void grdPrestamos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void MostrarTotales(int destinoId)
+        {
+                try
+                {
+                    DataTable resumen = TrabajarPrestamo.ObtenerResumenPrestamosPorDestino(destinoId);  
+                    if (resumen.Rows.Count>0)
+                    {
+                        DataRow row = resumen.Rows[0];
+                        lblOtorgados.Text = "Otorgados: " + row["TotalOtorgados"].ToString();
+                        lblPendientes.Text = "Pendientes: " + row["TotalPendientes"].ToString();
+                        lblCancelados.Text = "Cancelados: " + row["TotalCancelados"].ToString();
+                        lblAnulados.Text = "Anulados: " + row["TotalAnulados"].ToString();
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al mostrar los totales : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
-}

@@ -53,7 +53,11 @@
             this.listarPagosPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarPagosPorClienteYFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblGrupo = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -260,19 +264,52 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.ForeColor = System.Drawing.Color.Navy;
+            this.lblTitulo.Location = new System.Drawing.Point(150, 20);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(400, 40);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Sistema de Gestiòn de Prèstamos";
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblGrupo.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblGrupo.Location = new System.Drawing.Point(150, 60);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(300, 20);
+            this.lblGrupo.TabIndex = 0;
+            this.lblGrupo.Text = "Grupo 11 - LPOOI 2025";
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(20, 20);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::Vistas.Properties.Resources.logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(661, 373);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +342,8 @@
         private System.Windows.Forms.ToolStripMenuItem listarPagosPorClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarPagosPorClienteYFechasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anularPrestamoToolStripMenuItem;
-
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Label lblGrupo;
     }
 }
