@@ -38,7 +38,7 @@ namespace Vistas
 
                     aBMClienteToolStripMenuItem.Enabled = false;
                     prestamosToolStripMenuItem.Enabled = false;
-
+                    cuotasPorClienteYPrestamoToolStripMenuItem.Enabled = false;
                     break;
 
                 case "OPE":
