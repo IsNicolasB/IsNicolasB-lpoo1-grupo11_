@@ -193,7 +193,7 @@ namespace Vistas
 
        // GESTION DE CUOTAS
 
-       private void cuotasPorClientesYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       private void cuotasPorClienteYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
        {
            frmCuotaCliente frmCuotasClientes = new frmCuotaCliente();
            frmCuotasClientes.MdiParent = this;
@@ -250,5 +250,6 @@ namespace Vistas
            frmPeriodo.WindowState = FormWindowState.Maximized;
            frmPeriodo.Show();
        }
+
     }
 }
