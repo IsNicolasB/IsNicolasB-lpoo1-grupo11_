@@ -38,13 +38,14 @@ namespace Vistas
 
                     aBMClienteToolStripMenuItem.Enabled = false;
                     prestamosToolStripMenuItem.Enabled = false;
-
+                    cuotasPorClienteYPrestamoToolStripMenuItem.Enabled = false;
                     break;
 
                 case "OPE":
                     // Solo habilita Clientes, Prestamos y Pagos
                     aBMUsuarioToolStripMenuItem1.Enabled = false;
                     aBMDestinoToolStripMenuItem.Enabled = false;
+                    aBMPeriodoToolStripMenuItem.Enabled = false;
                     break;
 
                 case "AUD":
