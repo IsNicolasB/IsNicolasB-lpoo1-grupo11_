@@ -84,61 +84,23 @@ namespace ClasesBase.DataAccess
 
         public static DataTable ObtenerPagosFiltrados(string dniCliente, DateTime? fechaDesde, DateTime? fechaHasta)
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection cn = Conexion.CrearConexion())
+            using (SqlConnection cn = new SqlConnection(ClasesBase.Properties.Settings.Default.prestamosConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_ListarPagosFiltrados", cn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("sp_ListarPagosFiltrados", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Parámetro para el DNI del cliente
-                    if (!string.IsNullOrEmpty(dniCliente))
-                    {
-                        cmd.Parameters.AddWithValue("@CLI_DNI", dniCliente);
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@CLI_DNI", DBNull.Value);
-                    }
+                // Manejo de parámetros: si son nulos, se pasa DBNull
+                cmd.Parameters.AddWithValue("@CLI_DNI", string.IsNullOrEmpty(dniCliente) ? (object)DBNull.Value : dniCliente);
+                cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde.HasValue ? (object)fechaDesde.Value : DBNull.Value);
+                cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta.HasValue ? (object)fechaHasta.Value : DBNull.Value);
 
-                    // Parámetro para la fecha de inicio del rango
-                    if (fechaDesde.HasValue)
-                    {
-                        cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde.Value.Date); // Solo la fecha
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@FechaDesde", DBNull.Value);
-                    }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-                    // Parámetro para la fecha de fin del rango
-                    if (fechaHasta.HasValue)
-                    {
-                        cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta.Value.Date); // Solo la fecha
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@FechaHasta", DBNull.Value);
-                    }
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    try
-                    {
-                        cn.Open();
-                        da.Fill(dt);
-                    }
-                    catch (SqlException ex)
-                    {
-                        Console.WriteLine("Error de SQL al listar pagos filtrados: " + ex.Message);
-                        // Considera un mejor manejo de errores o logging
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error general al listar pagos filtrados: " + ex.Message);
-                    }
-                }
+                return dt;
             }
-            return dt;
         }
+
     }
 }

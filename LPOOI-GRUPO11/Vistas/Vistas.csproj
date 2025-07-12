@@ -53,6 +53,12 @@
     <Compile Include="FrmABMClientes.Designer.cs">
       <DependentUpon>FrmABMClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmABMPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmABMPeriodo.Designer.cs">
+      <DependentUpon>FrmABMPeriodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmABMUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,17 +83,17 @@
     <Compile Include="FrmAltaDestino.Designer.cs">
       <DependentUpon>FrmAltaDestino.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAnularPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnularPrestamo.Designer.cs">
+      <DependentUpon>frmAnularPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCuotaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCuotaCliente.Designer.cs">
       <DependentUpon>frmCuotaCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmDePruebas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmDePruebas.Designer.cs">
-      <DependentUpon>FrmDePruebas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDestinoModificar.cs">
       <SubType>Form</SubType>
@@ -159,6 +165,9 @@
     <EmbeddedResource Include="FrmABMClientes.resx">
       <DependentUpon>FrmABMClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmABMPeriodo.resx">
+      <DependentUpon>FrmABMPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmABMUsuarios.resx">
       <DependentUpon>FrmABMUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,11 +180,11 @@
     <EmbeddedResource Include="FrmAltaDestino.resx">
       <DependentUpon>FrmAltaDestino.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAnularPrestamo.resx">
+      <DependentUpon>frmAnularPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCuotaCliente.resx">
       <DependentUpon>frmCuotaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmDePruebas.resx">
-      <DependentUpon>FrmDePruebas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDestinoModificar.resx">
       <DependentUpon>FrmDestinoModificar.cs</DependentUpon>
@@ -250,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

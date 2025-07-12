@@ -38,13 +38,14 @@ namespace Vistas
 
                     aBMClienteToolStripMenuItem.Enabled = false;
                     prestamosToolStripMenuItem.Enabled = false;
-
+                    cuotasPorClienteYPrestamoToolStripMenuItem.Enabled = false;
                     break;
 
                 case "OPE":
                     // Solo habilita Clientes, Prestamos y Pagos
                     aBMUsuarioToolStripMenuItem1.Enabled = false;
                     aBMDestinoToolStripMenuItem.Enabled = false;
+                    aBMPeriodoToolStripMenuItem.Enabled = false;
                     break;
 
                 case "AUD":
@@ -149,6 +150,13 @@ namespace Vistas
            frmPagosporCliente.Show();
        }
 
+       private void listarPagosPorClienteYFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmPagosPorClienteYFecha frmPagosPorClienteYFecha = new FrmPagosPorClienteYFecha();
+           frmPagosPorClienteYFecha.MdiParent = this;
+           frmPagosPorClienteYFecha.WindowState = FormWindowState.Maximized;
+           frmPagosPorClienteYFecha.Show();
+       }
 
        // METODOS PARA LA GESTION DE PRESTAMOS
 
@@ -186,7 +194,7 @@ namespace Vistas
 
        // GESTION DE CUOTAS
 
-       private void cuotasPorClientesYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       private void cuotasPorClienteYPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
        {
            frmCuotaCliente frmCuotasClientes = new frmCuotaCliente();
            frmCuotasClientes.MdiParent = this;
@@ -222,12 +230,27 @@ namespace Vistas
 
        }
 
-       private void listarPagosPorClienteYFechasToolStripMenuItem_Click(object sender, EventArgs e)
+       //PUNTO 1 TP FINAL
+       private void anularPrestamoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           frmAnularPrestamo frmanularPrestamo = new frmAnularPrestamo();
+           frmanularPrestamo.MdiParent = this;
+           frmanularPrestamo.WindowState = FormWindowState.Maximized;
+           frmanularPrestamo.Show();
+       }
+
+       private void aBMUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
        {
 
        }
 
-
+       private void aBMPeriodoToolStripMenuItem_Click(object sender, EventArgs e)
+       {
+           FrmABMPeriodo frmPeriodo = new FrmABMPeriodo();
+           frmPeriodo.MdiParent = this;
+           frmPeriodo.WindowState = FormWindowState.Maximized;
+           frmPeriodo.Show();
+       }
 
     }
 }

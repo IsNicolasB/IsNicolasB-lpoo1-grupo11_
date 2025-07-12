@@ -38,6 +38,7 @@
             this.lblTotalPendiente = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuotas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,29 +48,29 @@
             this.dgvCuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCuotas.Location = new System.Drawing.Point(22, 52);
             this.dgvCuotas.Name = "dgvCuotas";
-            this.dgvCuotas.Size = new System.Drawing.Size(426, 189);
+            this.dgvCuotas.Size = new System.Drawing.Size(444, 189);
             this.dgvCuotas.TabIndex = 0;
             // 
             // cmbClientes
             // 
             this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(22, 20);
+            this.cmbClientes.Location = new System.Drawing.Point(75, 20);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(140, 21);
+            this.cmbClientes.Size = new System.Drawing.Size(118, 21);
             this.cmbClientes.Sorted = true;
-            this.cmbClientes.TabIndex = 0;
+            this.cmbClientes.TabIndex = 11;
             // 
             // txtNroPrestamo
             // 
-            this.txtNroPrestamo.Location = new System.Drawing.Point(258, 21);
+            this.txtNroPrestamo.Location = new System.Drawing.Point(295, 21);
             this.txtNroPrestamo.Name = "txtNroPrestamo";
-            this.txtNroPrestamo.Size = new System.Drawing.Size(90, 20);
+            this.txtNroPrestamo.Size = new System.Drawing.Size(78, 20);
             this.txtNroPrestamo.TabIndex = 2;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(359, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(379, 19);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(87, 23);
             this.btnBuscar.TabIndex = 3;
@@ -80,7 +81,8 @@
             // lblPagadas
             // 
             this.lblPagadas.AutoSize = true;
-            this.lblPagadas.Location = new System.Drawing.Point(6, 19);
+            this.lblPagadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagadas.Location = new System.Drawing.Point(6, 27);
             this.lblPagadas.Name = "lblPagadas";
             this.lblPagadas.Size = new System.Drawing.Size(112, 16);
             this.lblPagadas.TabIndex = 4;
@@ -89,7 +91,8 @@
             // lblPendientes
             // 
             this.lblPendientes.AutoSize = true;
-            this.lblPendientes.Location = new System.Drawing.Point(6, 37);
+            this.lblPendientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendientes.Location = new System.Drawing.Point(6, 46);
             this.lblPendientes.Name = "lblPendientes";
             this.lblPendientes.Size = new System.Drawing.Size(124, 16);
             this.lblPendientes.TabIndex = 5;
@@ -98,7 +101,8 @@
             // lblTotalPagado
             // 
             this.lblTotalPagado.AutoSize = true;
-            this.lblTotalPagado.Location = new System.Drawing.Point(6, 55);
+            this.lblTotalPagado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPagado.Location = new System.Drawing.Point(243, 27);
             this.lblTotalPagado.Name = "lblTotalPagado";
             this.lblTotalPagado.Size = new System.Drawing.Size(108, 16);
             this.lblTotalPagado.TabIndex = 6;
@@ -107,7 +111,8 @@
             // lblTotalPendiente
             // 
             this.lblTotalPendiente.AutoSize = true;
-            this.lblTotalPendiente.Location = new System.Drawing.Point(6, 72);
+            this.lblTotalPendiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPendiente.Location = new System.Drawing.Point(243, 46);
             this.lblTotalPendiente.Name = "lblTotalPendiente";
             this.lblTotalPendiente.Size = new System.Drawing.Size(120, 16);
             this.lblTotalPendiente.TabIndex = 7;
@@ -120,11 +125,11 @@
             this.groupBox1.Controls.Add(this.lblTotalPendiente);
             this.groupBox1.Controls.Add(this.lblPendientes);
             this.groupBox1.Controls.Add(this.lblTotalPagado);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(449, 24);
-            this.groupBox1.MaximumSize = new System.Drawing.Size(250, 150);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(22, 249);
+            this.groupBox1.MaximumSize = new System.Drawing.Size(500, 150);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(209, 150);
+            this.groupBox1.Size = new System.Drawing.Size(458, 75);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resumen de Cuotas";
@@ -133,17 +138,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(168, 22);
+            this.label1.Location = new System.Drawing.Point(202, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 16);
             this.label1.TabIndex = 9;
             this.label1.Text = "NroPrestamo:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Cliente:";
+            // 
             // frmCuotaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 262);
+            this.ClientSize = new System.Drawing.Size(497, 334);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBuscar);
@@ -173,5 +190,6 @@
         private System.Windows.Forms.Label lblTotalPendiente;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
